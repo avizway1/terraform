@@ -32,6 +32,51 @@ Common IaC tools include:
 
 Terraform is a **platform-agnostic**, **declarative**, **open-source** tool created by HashiCorp that uses HCL (HashiCorp Configuration Language) to define infrastructure.
 
+---
+
+## What Does **Declarative** Mean?
+
+In programming and configuration, **declarative** means you **describe the *desired outcome*** — not the steps to get there.
+
+Terraform is a **declarative** language: you write **what you want**, and **Terraform figures out *how* to make it happen**.
+
+---
+
+## Declarative vs Imperative – Simple Analogy
+
+| Style       | You Say                                                                | Meaning                  |
+| ----------- | ---------------------------------------------------------------------- | ------------------------ |
+| Declarative | “I want an EC2 instance of type t2.micro in us-east-1”                 | You declare the end goal |
+| Imperative  | “First login, then open EC2 console, click ‘Launch’, choose t2.micro…” | You specify every step   |
+
+---
+
+## Real Terraform Example (Declarative)
+
+```hcl
+resource "aws_instance" "web" {
+  ami           = "ami-012345"
+  instance_type = "t2.micro"
+}
+```
+
+Here’s what you’re saying:
+
+> “I want an EC2 instance with this AMI and type.”
+
+* Terraform checks what already exists.
+* If nothing exists, it creates the instance.
+* If it already exists, it does **nothing**.
+* If it’s the wrong instance type, it **updates it**.
+
+You don’t have to say:
+
+> “Step 1: Create network. Step 2: Launch EC2. Step 3: Attach subnet. Step 4: Tag the instance…”
+
+Terraform handles that logic for you behind the scenes.
+
+---
+
 ### Terraform's Purpose:
 - Manage infrastructure across multiple platforms (AWS, Azure, GCP, etc.)
 - Version control for infrastructure
