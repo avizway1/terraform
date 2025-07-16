@@ -32,8 +32,34 @@ Common IaC tools include:
 
 Terraform is a **platform-agnostic**, **declarative**, **open-source** tool created by HashiCorp that uses HCL (HashiCorp Configuration Language) to define infrastructure.
 
+## Terraform Editions
 ---
 
+### **Terraform Community (Open Source)**
+
+* **Free** and **self-managed**
+* Run from **local machine or CI/CD**
+* Best for **individuals**, learning, and small teams
+* No GUI, just CLI
+
+---
+
+### **HCP Terraform (Hosted by HashiCorp)**
+
+* **SaaS version** managed by HashiCorp
+* **UI dashboard** to collaborate, manage runs, and approve changes
+* **Remote state**, **version control**, **role-based access**
+* Free tier available; scalable for teams
+
+---
+
+### **Terraform Enterprise**
+
+* **Self-hosted** version for large organizations
+* All HCP features + **advanced security**, **policy enforcement**, **private networking**
+* Suited for **regulated enterprises** needing full control over deployment and data
+
+---
 ## What Does **Declarative** Mean?
 
 In programming and configuration, **declarative** means you **describe the *desired outcome*** — not the steps to get there.
@@ -84,7 +110,6 @@ Terraform handles that logic for you behind the scenes.
 - Scalable and modular configurations
 
 ---
-
 ## Terraform Core Concepts
 
 | Component | Description |
@@ -95,8 +120,6 @@ Terraform handles that logic for you behind the scenes.
 | **State** | Maps your configuration to real-world resources |
 | **Variable** | Parameterizes your configuration |
 | **Output** | Displays results (e.g., IP address) |
-| **Backend** | Manages how state is loaded/stored (local, S3, etc.) |
-
 
 ---
 
@@ -194,25 +217,6 @@ output "instance_ip" {
 
 ---
 
-### **Backend**
-
-The **backend** controls where the state file is **stored and how it's shared**. By default, it's stored locally, but in teams, it's better to use cloud storage (e.g., S3, Azure Blob).
-
-* Helps with **state locking**, **sharing**, and **remote collaboration**.
-
-```hcl
-terraform {
-  backend "s3" {
-    bucket = "my-terraform-states"
-    key    = "dev/vpc.tfstate"
-    region = "us-east-1"
-  }
-}
-```
-
-
----
-
 ## Terraform Benefits
 
 - **Platform Agnostic**: Write once, use across clouds.
@@ -221,17 +225,6 @@ terraform {
 - **Collaboration**: Infrastructure as shared, version-controlled code.
 - **Consistency & Repeatability**: Avoid config drift.
 - **Auditability**: Track infrastructure changes over time.
-
----
-
-## Declarative vs Imperative
-
-| Approach | Description | Example |
-|----------|-------------|---------|
-| **Declarative** | Define what you want | `Create an EC2 instance with type t2.micro` |
-| **Imperative** | Define how to do it step-by-step | `Step 1: Login → Step 2: Click EC2 → Step 3: Launch` |
-
-Terraform uses the **declarative** approach.
 
 ---
 
