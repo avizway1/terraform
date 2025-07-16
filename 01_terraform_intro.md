@@ -8,7 +8,6 @@ Infrastructure as Code (IaC) is a modern IT practice that enables infrastructure
 - **Automation**: Replace manual provisioning with scripts.
 - **Repeatability**: Deploy the same environment consistently.
 - **Speed**: Faster cloud adoption and provisioning.
-- **Self-service**: Teams can request infrastructure on demand.
 - **Standardization**: Reduces human error and enforces consistency.
 - **Collaboration**: Code can be versioned, reviewed, and shared.
 
